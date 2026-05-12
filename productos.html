@@ -15,6 +15,7 @@
     <a href="index.html" class="logo-link">
       <h1>EL SUREÑO</h1>
     </a>
+    <button class="estado-local" id="estadoLocalBtn" aria-label="Ver horarios"></button>
     <button class="hamburger" id="menuToggle" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -22,7 +23,6 @@
       <a href="index.html">Inicio</a>
       <a href="productos.html">Catálogo</a>
       <a href="contacto.html">Contacto</a>
-      <span class="estado-local"></span>
     </nav>
   </header>
 
@@ -54,6 +54,29 @@
       <input type="tel" id="telefono" placeholder="Teléfono *">
       <input type="email" id="email" placeholder="Email (opcional)">
       <button id="enviar" class="btn btn-whatsapp">Consultar por WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- Modal Horarios -->
+  <div id="horariosModal" class="horarios-modal-overlay">
+    <div class="horarios-modal-box">
+      <button class="horarios-modal-close" aria-label="Cerrar">&times;</button>
+      <h3>Horarios de atención</h3>
+      <div class="horarios-lista">
+        <div class="horario-fila">
+          <span>Lunes a Viernes</span>
+          <span>7:00 – 16:00</span>
+        </div>
+        <div class="horario-fila">
+          <span>Sábado</span>
+          <span>7:00 – 12:00</span>
+        </div>
+        <div class="horario-fila">
+          <span>Domingo</span>
+          <span class="horario-cerrado">Cerrado</span>
+        </div>
+      </div>
+      <div id="horarioEstado" class="horario-estado-badge"></div>
     </div>
   </div>
 

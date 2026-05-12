@@ -261,12 +261,12 @@ if (cartBtn && cartModal && closeBtn) {
 // Estado abierto / cerrado del local
 function actualizarEstadoLocal() {
   const ahora = new Date();
-  const dia = ahora.getDay(); // 0=Dom, 1=Lun, ..., 6=Sab
+  const dia = ahora.getDay();
   const minutos = ahora.getHours() * 60 + ahora.getMinutes();
 
-  const apertura       = 7 * 60;  // 07:00
-  const cierreSemana   = 16 * 60; // 16:00
-  const cierreSabado   = 12 * 60; // 12:00
+  const apertura     = 7 * 60;
+  const cierreSemana = 16 * 60;
+  const cierreSabado = 12 * 60;
 
   let abierto = false;
   if (dia >= 1 && dia <= 5) {
@@ -279,7 +279,33 @@ function actualizarEstadoLocal() {
     el.textContent = abierto ? '● Abierto' : '● Cerrado';
     el.className   = 'estado-local ' + (abierto ? 'abierto' : 'cerrado');
   });
+
+  const badge = document.getElementById('horarioEstado');
+  if (badge) {
+    badge.textContent = abierto ? '● Abierto ahora' : '● Cerrado ahora';
+    badge.className   = 'horario-estado-badge ' + (abierto ? 'abierto' : 'cerrado');
+  }
 }
 
 actualizarEstadoLocal();
 setInterval(actualizarEstadoLocal, 60000);
+
+// Modal horarios
+const horariosModal = document.getElementById('horariosModal');
+const horariosClose = document.querySelector('.horarios-modal-close');
+
+document.querySelectorAll('.estado-local').forEach(btn => {
+  btn.addEventListener('click', () => horariosModal && horariosModal.classList.add('show'));
+});
+
+if (horariosClose) {
+  horariosClose.addEventListener('click', () => horariosModal.classList.remove('show'));
+}
+if (horariosModal) {
+  horariosModal.addEventListener('click', e => {
+    if (e.target === horariosModal) horariosModal.classList.remove('show');
+  });
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && horariosModal) horariosModal.classList.remove('show');
+});

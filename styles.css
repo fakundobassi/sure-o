@@ -158,15 +158,22 @@ nav a.active {
 
 /* Estado abierto/cerrado */
 .estado-local {
-  padding: 5px 13px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
   border-radius: 50px;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
-  cursor: default;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .estado-local.abierto {
@@ -176,6 +183,117 @@ nav a.active {
 }
 
 .estado-local.cerrado {
+  background: rgba(234, 67, 53, 0.12);
+  color: #ff6b6b;
+  border: 1px solid rgba(234, 67, 53, 0.3);
+}
+
+/* ── MODAL HORARIOS ── */
+.horarios-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 68px;
+}
+
+.horarios-modal-overlay.show {
+  display: flex;
+}
+
+.horarios-modal-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  width: 300px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+  border: 1px solid #e8e8e8;
+  animation: modalFadeIn 0.25s ease;
+  position: relative;
+}
+
+.horarios-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #89928D;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.horarios-modal-close:hover {
+  color: #1A1A1A;
+}
+
+.horarios-modal-box h3 {
+  color: #43555B;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.horarios-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.horario-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.88rem;
+}
+
+.horario-fila:last-child {
+  border-bottom: none;
+}
+
+.horario-fila span:first-child {
+  color: #1A1A1A;
+  font-weight: 500;
+}
+
+.horario-fila span:last-child {
+  color: #43555B;
+  font-weight: 700;
+}
+
+.horario-cerrado {
+  color: #ff6b6b !important;
+}
+
+.horario-estado-badge {
+  margin-top: 18px;
+  padding: 10px 16px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.horario-estado-badge.abierto {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.4);
+}
+
+.horario-estado-badge.cerrado {
   background: rgba(234, 67, 53, 0.12);
   color: #ff6b6b;
   border: 1px solid rgba(234, 67, 53, 0.3);
@@ -1480,6 +1598,8 @@ a.info-item {
   }
 
   .estado-local {
+    position: static;
+    transform: none;
     align-self: center;
   }
 
