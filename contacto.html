@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - EL SUREÑO</title>
+  <link rel="icon" type="image/png" href="img/logosureño.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo-link">
+      <h1>EL SUREÑO</h1>
+    </a>
+    <button class="hamburger" id="menuToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <span class="estado-local"></span>
+    </nav>
+  </header>
+
+  <section class="contacto-section reveal" style="padding-top: 100px;">
+    <h2>Contacto</h2>
+
+    <div class="contacto-container">
+      <div class="contacto-info">
+        <div class="info-item">
+          <h3>📍 Dirección</h3>
+          <p>RN205 Km 182,5, B7260 Saladillo, Buenos Aires</p>
+        </div>
+        <a href="https://wa.me/2345563423" target="_blank" class="info-item link-card whatsapp-card">
+          <h3>📱 WhatsApp</h3>
+          <p>Chatea con nosotros</p>
+        </a>
+        <a href="https://www.instagram.com/surenocorralon/" target="_blank" class="info-item link-card instagram-card">
+          <h3>📸 Instagram</h3>
+          <p>@surenocorralon</p>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="info-item link-card facebook-card">
+          <h3>📘 Facebook</h3>
+          <p>Síguenos en nuestra página</p>
+        </a>
+      </div>
+
+      <div class="contacto-mapa">
+        <iframe
+          src="https://maps.google.com/maps?q=RN205+Km+182%2C5%2C+B7260+Saladillo%2C+Provincia+de+Buenos+Aires&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Cart Button -->
+  <button id="cartBtn" class="cart-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart3"
+      viewBox="0 0 16 16">
+      <path
+        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+    </svg>
+    <span id="cartCount">0</span>
+  </button>
+
+  <!-- Modal -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Tu Presupuesto</h2>
+      <div id="listaPresupuesto"></div>
+      <p id="contador" class="contador-text"></p>
+      <button id="limpiar" class="btn secundario">Limpiar presupuesto</button>
+      <h3>Datos del cliente</h3>
+      <input type="text" id="nombre" placeholder="Nombre *">
+      <input type="tel" id="telefono" placeholder="Teléfono *">
+      <input type="email" id="email" placeholder="Email (opcional)">
+      <button id="enviar" class="btn btn-whatsapp">Consultar por WhatsApp</button>
+    </div>
+  </div>
+
+  <footer id="contacto">
+    <p class="footer-copy">© 2026 EL SUREÑO</p>
+    <p class="footer-credit">Sitio web creado por <a href="https://fakundobassi.github.io/Facundo_Bassi/"
+        target="_blank" rel="noopener">Facundo Bassi - Derechos reservados</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+  <script src="transition.js"></script>
+</body>
+
+</html>
